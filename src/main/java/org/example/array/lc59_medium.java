@@ -1,14 +1,45 @@
-package org.example.array.src;
+package org.example.array;
 
 public class lc59_medium {
     public static void main(String[] args) {
-        int[][] ints = solution3(5);
+        int[][] ints = solution1115(5);
         for (int[] anInt : ints) {
             for (int i : anInt) {
                 System.out.printf("%5d", i);
             }
             System.out.println();
         }
+    }
+
+    public static int[][] solution1115(int n) {
+        int[][] result = new int[n][n];
+        int currentNumber = 1;
+        int startPoint = 0;
+        int loop = 0;
+        while (n / 2 >= loop) {
+            for (int i = startPoint; i < n - loop - 1; i++) {
+                result[startPoint][i] = currentNumber;
+                currentNumber++;
+            }
+            for (int i = startPoint; i < n - loop - 1; i++) {
+                result[i][n-loop-1] = currentNumber;
+                currentNumber++;
+            }
+            for (int i = n - loop - 1; i > startPoint; i--) {
+                result[n-loop-1][i] = currentNumber;
+                currentNumber++;
+            }
+            for (int i = n - loop - 1; i > startPoint; i--) {
+                result[i][startPoint] = currentNumber;
+                currentNumber++;
+            }
+            startPoint++;
+            loop++;
+        }
+        if (n % 2 == 1) {
+            result[startPoint-1][startPoint-1] = currentNumber;
+        }
+        return result;
     }
 
     // 模拟矩阵的生成

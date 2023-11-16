@@ -1,14 +1,44 @@
-package org.example.array.src;
+package org.example.array;
 
 import java.util.Arrays;
 
-public class lc977_simple {
+public class lc977_easy {
     public static void main(String[] args) {
         int[] nums = {-3, -2, 0, 2, 3, 11};
         System.out.println(Arrays.toString(nums));
-        int[] answer = solution4(nums);
+        int[] answer = solution1114(nums);
         System.out.println(Arrays.toString(answer));
     }
+
+    public static int[] solution1114(int[] nums) {
+        int boundary = -1;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] < 0) {
+                boundary = i;
+            } else {
+                break;
+            }
+        }
+        int[] result = new int[nums.length];
+        int negative = boundary; // biggest element that < 0
+        int positive = boundary + 1; // smallest element that >= 0
+        for (int i = 0; i < nums.length; i++) { // all positive, or only positive left
+            if (negative < 0) {
+                result[i] = nums[positive] * nums[positive];
+            } else if (positive == nums.length - 1) { // all negative
+                result[i] = nums[negative] * nums[negative];
+                negative--;
+            } else if (nums[negative] * nums[negative] < nums[positive] * nums[positive]) {
+                result[i] = nums[negative] * nums[negative];
+                negative--;
+            } else {
+                result[i] = nums[positive] * nums[positive];
+                positive++;
+            }
+        }
+        return result;
+    }
+
 
     // 暴力解法，元素平方后排序
     public static int[] solution1(int[] nums) {

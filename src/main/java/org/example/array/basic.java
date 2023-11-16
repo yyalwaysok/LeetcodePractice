@@ -1,4 +1,4 @@
-package org.example.array.src;
+package org.example.array;
 
 public class basic {
     // 数组是存放在连续内存空间上的相同类型数据的集合，可以方便地通过下标索引的方式获取到下表对应的数据

@@ -1,19 +1,22 @@
-package org.example.array.src;
+package org.example.array;
 
 import java.util.Arrays;
 
 public class lc209_medium {
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5};
-        int target = 11;
+        int[] nums = {2,3,1,2,4,3};
+        int target = 7;
         int i = solution1(target, nums);
         System.out.println(i);
+//        int j = solution1114(target, nums);
+//        System.out.println(j);
 
 //        int[] arr = {1, 3, 6, 7, 9};
 //        int elementToSearch = 10;
 //        int index = Arrays.binarySearch(arr, elementToSearch);
 //        System.out.println(-index - 1);
     }
+
 
     // 暴力解法，两个for循环不断寻找符合条件的子数组
     // 时间复杂度是O(n^2)
@@ -81,7 +84,7 @@ public class lc209_medium {
     }
 
     // 滑动窗口
-    public int solution3(int target, int[] nums) {
+    public static int solution3(int target, int[] nums) {
         int n = nums.length;
         if (n == 0) {
             return 0;

@@ -1,12 +1,11 @@
-package org.example.array.src;
+package org.example.array;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 // 要求删除数组中等于val的元素
 // require in-place algorithm: meaning modifying the input in place, without creating a separate copy of the data structure.在原数组上进行修改
-public class lc27_simple {
-    static int[] nums = {3, 2, 2, 3};
+public class lc27_easy {
+    static int[] nums = {2};
 
     public static void main(String[] args) {
         int val = 3;
