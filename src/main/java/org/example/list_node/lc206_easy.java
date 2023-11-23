@@ -4,8 +4,23 @@ public class lc206_easy {
     public static void main(String[] args) {
 
         ListNode head = createLinkedList(new int[]{1, 2, 3, 4, 5});
-        ListNode listNode = solution1116(head);
-        printLinkedList(listNode);
+//        ListNode listNode = solution1116(head);
+//        printLinkedList(listNode);
+        ListNode listNode2 = solution1117(head);
+        printLinkedList(listNode2);
+    }
+
+    private static ListNode solution1117(ListNode head) {
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode after;
+        while (current != null) {
+            after = current.next;
+            current.next = previous;
+            previous = current;
+            current = after;
+        }
+        return previous;
     }
 
     private static ListNode solution1116(ListNode head) {
